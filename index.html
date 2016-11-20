@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GALA: Grab A License Agreement</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <meta name="description" content="Easily download an open source license agreement">
+    <meta name="author" content="Michael Schwartz">
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="libraries/jquery/jquery.js"></script>
+    <script src="libraries/alertify/alertify.min.js"></script>
+    <script src="libraries/jszip/Blob.js"></script>
+    <script src="libraries/jszip/FileSaver.js"></script>
+    <script src="libraries/jszip/jszip-utils.js"></script>
+    <script src="libraries/jszip/jszip.min.js"></script>
+    <script src="libraries/awesomplete/awesomplete.min.js"></script>
+  </head>
+  <body>
+    <!-- Menu bar -->
+    <input id="menuicon" class="hide" type="checkbox" checked>
+    <span class="header hold-menu-btns">
+      <div class="btn--default apptitle">gala</div>
+      <label for="menuicon" class="btn--default fa fa-bars add menuicon pointer"></label>
+    </span>
+    <span class="header hold-buttons">
+      <button class="btn--default fa fa-download pointer add" data-download="license"></button>
+      <button class="btn--default fa fa-file-zip-o pointer add" data-download="licenses"></button>
+      <button class="btn--default fa fa-search pointer add" data-click="search"></button>
+      <span class="wrapper fr">
+        <i class="pointer fa fa-search"></i>
+        <input type="text" class="awesomplete search add" data-list="#licenses" data-value="search">
+      </span>
+    </span>
+    
+    <!-- Licenses -->
+    <select id="licenses" class="hide">
+      <option value="Apache" selected></option>
+      <option value="BSD 2-Clause Simplified"></option>
+      <option value="BSD 3-Clause Revised"></option>
+      <option value="Creative Commons Attribution 3.0"></option>
+      <option value="Creative Commons NoDerivs 3.0"></option>
+      <option value="Creative Commons NonCommercial 3.0"></option>
+      <option value="Creative Commons NonCommercial-NoDerivs 3.0"></option>
+      <option value="Creative Commons NonCommercial-ShareAlike 3.0"></option>
+      <option value="Creative Commons ShareAlike 3.0"></option>
+      <option value="Creative Commons CC0 1.0 Universal"></option>
+      <option value="Eclipse Public License v1"></option>
+      <option value="GNU Affero General Public License v3"></option>
+      <option value="GNU General Public License v2"></option>
+      <option value="GNU General Public License v3"></option>
+      <option value="GNU Lesser General Public License v2"></option>
+      <option value="GNU Lesser General Public License v3"></option>
+      <option value="MIT"></option>
+      <option value="Mozilla Public License v2.0"></option>
+      <option value="The Unlicense"></option>
+    </select>
+
+    <!-- License Container -->
+    <div class="container">
+      <div id="licensescroll" class="license-scroll notxtsel"></div>
+      <input type="text" class="inputs" placeholder="Your name">
+      <input type="email" class="inputs" placeholder="something@site.com">
+      
+      <textarea class="canvas" readonly></textarea>
+    </div>
+    
+    <!-- Search Dialog -->
+    <div class="hide search-dialog">
+      <div class="wrapperbg"></div>
+      <div class="wrapper">
+        <i class="fa fa-times clear"></i>
+        <input type="text" class="awesomplete search add" data-list="#licenses" data-value="search">
+      </div>
+    </div>
+
+    <script src="js/gala.js"></script>
+  </body>
+</html>
